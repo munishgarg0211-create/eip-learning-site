@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enterprise Integration Patterns Lab</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Interactive Learning Lab</p>
+        <h1>Enterprise Integration Patterns</h1>
+        <p class="subtitle">
+          Choose a pattern, generate traffic, and see how messages flow between dummy services.
+        </p>
+      </div>
+      <div class="controls-card">
+        <label for="patternSelect">Pattern</label>
+        <select id="patternSelect"></select>
+        <label for="trafficRate">Traffic Rate <span id="rateLabel">3 msg/s</span></label>
+        <input id="trafficRate" type="range" min="1" max="8" value="3" />
+        <div class="buttons">
+          <button id="startTraffic">Start Traffic</button>
+          <button id="stopTraffic" class="ghost">Stop</button>
+          <button id="singleStep" class="ghost">Single Message</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="pattern-grid" id="patternCards"></section>
+
+      <section class="sim-panel">
+        <div class="sim-header">
+          <h2 id="simTitle">Simulation</h2>
+          <p id="simSummary"></p>
+        </div>
+        <div class="canvas-wrap">
+          <svg id="simSvg" viewBox="0 0 900 420" aria-label="Pattern Simulation"></svg>
+        </div>
+        <div class="stats">
+          <div><span id="sentCount">0</span><small>Messages Sent</small></div>
+          <div><span id="processedCount">0</span><small>Messages Processed</small></div>
+          <div><span id="latencyAvg">0 ms</span><small>Average Latency</small></div>
+        </div>
+      </section>
+
+      <section class="details">
+        <article>
+          <h3>Use Case</h3>
+          <p id="useCase"></p>
+        </article>
+        <article>
+          <h3>Pros</h3>
+          <ul id="pros"></ul>
+        </article>
+        <article>
+          <h3>Cons</h3>
+          <ul id="cons"></ul>
+        </article>
+        <article>
+          <h3>Open Source Products & Libraries</h3>
+          <ul id="products"></ul>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Note: This is a conceptual simulator for learning. Timing, retries, and failure modes are simplified.
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

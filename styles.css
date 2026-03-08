@@ -1,0 +1,259 @@
+:root {
+  --bg: #f4f6f8;
+  --surface: #ffffff;
+  --ink: #12202d;
+  --muted: #526474;
+  --accent: #0f766e;
+  --accent-2: #f59e0b;
+  --line: #d7e0e7;
+  --good: #0e9f6e;
+  --bad: #d14343;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 10%, #dceff1, transparent 40%),
+    radial-gradient(circle at 90% 20%, #fbe7c1, transparent 35%),
+    var(--bg);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.5rem;
+  padding: 2rem clamp(1rem, 3vw, 3rem);
+}
+
+h1 {
+  margin: 0.2rem 0 0.8rem;
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 58ch;
+  color: var(--muted);
+}
+
+.controls-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem;
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+  box-shadow: 0 8px 20px rgba(18, 32, 45, 0.06);
+}
+
+.controls-card label {
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.controls-card select,
+.controls-card input[type="range"] {
+  width: 100%;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+button {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.55rem 0.8rem;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button.ghost {
+  background: #eff4f7;
+  color: var(--ink);
+}
+
+main {
+  padding: 0 clamp(1rem, 3vw, 3rem) 2rem;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.pattern-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.8rem;
+}
+
+.pattern-card {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 0.8rem;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.pattern-card:hover {
+  transform: translateY(-2px);
+  border-color: #9fc8c4;
+}
+
+.pattern-card.active {
+  border-color: var(--accent);
+  box-shadow: 0 6px 16px rgba(15, 118, 110, 0.16);
+}
+
+.pattern-card h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.pattern-card p {
+  margin: 0.45rem 0 0;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+.sim-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 8px 20px rgba(18, 32, 45, 0.06);
+}
+
+.sim-header h2 {
+  margin: 0;
+}
+
+.sim-header p {
+  margin-top: 0.4rem;
+  color: var(--muted);
+}
+
+.canvas-wrap {
+  margin-top: 0.8rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: linear-gradient(165deg, #f7fafc, #f1f6f9);
+}
+
+#simSvg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.stats {
+  margin-top: 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.stats div {
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.6rem;
+}
+
+.stats span {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.stats small {
+  color: var(--muted);
+}
+
+.details {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.details article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.9rem;
+}
+
+.details h3 {
+  margin-top: 0;
+}
+
+ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+li {
+  margin-bottom: 0.35rem;
+}
+
+footer {
+  padding: 0 1rem 1.2rem;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.83rem;
+}
+
+.node rect {
+  fill: #ffffff;
+  stroke: #8fb5c0;
+  stroke-width: 2;
+  rx: 12;
+}
+
+.node text {
+  font-size: 13px;
+  fill: #203141;
+  font-weight: 600;
+}
+
+.link {
+  stroke: #8fb5c0;
+  stroke-width: 2;
+  marker-end: url(#arrow);
+}
+
+.packet {
+  stroke: #fff;
+  stroke-width: 1.6;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
